@@ -1,0 +1,20 @@
+{
+  "host": "0.0.0.0",
+  "javaTcpPort": 25565,
+  "bedrockUdpPort": 19132,
+  "motd": "Custom server handshake reached successfully",
+  "maxConnections": 128,
+  "structuredLoggingEnabled": true,
+  "authMode": "OFFLINE",
+  "javaAuthentication": {
+    "sessionServerUrl": "https://sessionserver.mojang.com",
+    "includeClientIpInSessionVerification": false,
+    "rsaKeySizeBits": 1024
+  },
+  "bedrockAuthentication": {
+    "requireTrustedRootChain": true,
+    "trustedRootPublicKeys": [
+      "MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAECRXueJeTDqNRRgJi/vlRufByu/2G0i2Ebt6YMar5QX/R0DIIyrJMcUpruK4QveTfJSTp3Shlq4Gk34cD/4GUWwkv0DVuzeuB+tXija7HBxii03NHDbPAD0AKnLr2wdAp"
+    ]
+  }
+}

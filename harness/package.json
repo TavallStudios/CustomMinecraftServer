@@ -1,0 +1,18 @@
+{
+  "name": "custom-minecraft-server-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "smoke:java:1.8": "node ./run-java-smoke.mjs 1.8.8",
+    "smoke:java:1.21": "node ./run-java-smoke.mjs 1.21.4",
+    "smoke:java:1.8:online": "node ./run-java-online-smoke.mjs 1.8.8",
+    "smoke:java:1.21:online": "node ./run-java-online-smoke.mjs 1.21.4",
+    "smoke:bedrock": "node ./run-bedrock-smoke.mjs",
+    "smoke:bedrock:online": "node ./run-bedrock-online-smoke.mjs",
+    "smoke:all": "node ./run-all-smoke.mjs"
+  },
+  "dependencies": {
+    "bedrock-protocol": "^3.48.0",
+    "mineflayer": "^4.23.0"
+  }
+}
