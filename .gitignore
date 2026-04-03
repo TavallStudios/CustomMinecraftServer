@@ -1,0 +1,11 @@
+/.gradle/
+/build/
+/out/
+/logs/
+/.idea/
+/.qodo/
+/node_modules/
+/harness/node_modules/
+/.mcp-write-test
+*.log
+*.tmp
