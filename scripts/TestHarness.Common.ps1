@@ -17,17 +17,17 @@ function Start-CustomServerHarness {
     )
 
     Assert-HarnessPortsAvailable
-    & "$RepoRoot\gradlew.bat" installDist
+    & mvn -q -DskipTests package
 
-    $logDir = Join-Path $RepoRoot "build\harness"
+    $logDir = Join-Path $RepoRoot "target\harness"
     New-Item -ItemType Directory -Path $logDir -Force | Out-Null
     $stdoutLog = Join-Path $logDir "server-stdout.log"
     $stderrLog = Join-Path $logDir "server-stderr.log"
     Remove-Item $stdoutLog, $stderrLog -Force -ErrorAction SilentlyContinue
 
     $process = Start-Process `
-        -FilePath "$RepoRoot\build\install\custom-minecraft-server\bin\custom-minecraft-server.bat" `
-        -ArgumentList $SettingsPath `
+        -FilePath "java" `
+        -ArgumentList "-jar", "$RepoRoot\target\custom-minecraft-server.jar", $SettingsPath `
         -WorkingDirectory $RepoRoot `
         -RedirectStandardOutput $stdoutLog `
         -RedirectStandardError $stderrLog `
@@ -117,7 +117,7 @@ function New-CustomServerSettingsSnapshot {
         [string]$AuthMode
     )
 
-    $logDir = Join-Path $RepoRoot "build\harness"
+    $logDir = Join-Path $RepoRoot "target\harness"
     New-Item -ItemType Directory -Path $logDir -Force | Out-Null
 
     $settings = Get-Content (Join-Path $RepoRoot "server-settings.json") -Raw | ConvertFrom-Json -AsHashtable
