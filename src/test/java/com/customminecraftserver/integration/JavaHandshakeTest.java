@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class JavaHandshakeIntegrationTest {
+class JavaHandshakeTest {
     private static final AttributeKey<ConnectionSession> SESSION_KEY = AttributeKey.valueOf("java-session");
 
     private EmbeddedChannel channel;

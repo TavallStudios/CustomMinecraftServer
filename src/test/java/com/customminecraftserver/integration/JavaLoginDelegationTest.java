@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-class JavaLoginDelegationIntegrationTest {
+class JavaLoginDelegationTest {
     @Test
     void offlineModeDelegatesToOfflineAdmissionUsingRealObjects() {
         OfflineJavaLoginAdmission offline = Mockito.spy(new OfflineJavaLoginAdmission());
