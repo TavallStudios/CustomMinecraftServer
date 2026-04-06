@@ -1,0 +1,16 @@
+<configuration xmlns="http://jgitver.github.io/maven/configuration/1.1.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://jgitver.github.io/maven/configuration/1.1.0
+                                   https://jgitver.github.io/maven/configuration/jgitver-configuration-v1_1_0.xsd">
+
+    <strategy>MAVEN</strategy>
+    <policy>LATEST</policy>
+    <autoIncrementPatch>true</autoIncrementPatch>
+    <useCommitDistance>true</useCommitDistance>
+    <useSnapshot>true</useSnapshot>
+    <gitCommitIdLength>8</gitCommitIdLength>
+    <regexVersionTag>CustomMinecraftServer-v([0-9]+\.[0-9]+\.[0-9]+)</regexVersionTag>
+    <exclusions></exclusions>
+    <useDefaultBranchingPolicy>true</useDefaultBranchingPolicy>
+
+</configuration>
