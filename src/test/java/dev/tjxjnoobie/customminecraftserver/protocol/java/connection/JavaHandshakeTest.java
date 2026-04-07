@@ -14,6 +14,7 @@ import dev.tjxjnoobie.customminecraftserver.logging.StructuredConnectionLogger;
 import dev.tjxjnoobie.customminecraftserver.network.ProtocolVersionDetector;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSession;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSessionRegistry;
+import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.util.AttributeKey;
 import org.junit.jupiter.api.AfterEach;
@@ -53,6 +54,7 @@ class JavaHandshakeTest {
 
     @Test
     void legacyLoginHandshakeProducesDeterministicDisconnect() {
+        TestLogSupport.logTestStart("JavaHandshakeTest.legacyLoginHandshakeProducesDeterministicDisconnect");
         channel = createChannel(AuthMode.OFFLINE);
 
         channel.writeInbound(handshakePacket(47, "localhost", 25565, 2));
@@ -72,6 +74,7 @@ class JavaHandshakeTest {
 
     @Test
     void modernLoginHandshakeProducesDeterministicDisconnect() {
+        TestLogSupport.logTestStart("JavaHandshakeTest.modernLoginHandshakeProducesDeterministicDisconnect");
         channel = createChannel(AuthMode.OFFLINE);
 
         channel.writeInbound(handshakePacket(769, "localhost", 25565, 2));

@@ -19,6 +19,7 @@ import dev.tjxjnoobie.customminecraftserver.session.ConnectionSessionRegistry;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import io.netty.buffer.ByteBuf;
+import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.util.AttributeKey;
 import org.junit.jupiter.api.AfterEach;
@@ -74,6 +75,7 @@ class JavaOnlineAuthenticationTest {
 
     @Test
     void legacyOnlineLoginPerformsSessionVerificationAndEncryptedDisconnect() throws Exception {
+        TestLogSupport.logTestStart("JavaOnlineAuthenticationTest.legacyOnlineLoginPerformsSessionVerificationAndEncryptedDisconnect");
         OnlineFlowResult result = runOnlineFlow(
                 47,
                 "LegacyOnlineUser",
@@ -93,6 +95,7 @@ class JavaOnlineAuthenticationTest {
 
     @Test
     void modernOnlineLoginPerformsSessionVerificationAndEncryptedDisconnect() throws Exception {
+        TestLogSupport.logTestStart("JavaOnlineAuthenticationTest.modernOnlineLoginPerformsSessionVerificationAndEncryptedDisconnect");
         OnlineFlowResult result = runOnlineFlow(
                 769,
                 "ModernOnlineUser",
