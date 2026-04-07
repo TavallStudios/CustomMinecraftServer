@@ -15,6 +15,7 @@ import dev.tjxjnoobie.customminecraftserver.logging.StructuredConnectionLogger;
 import dev.tjxjnoobie.customminecraftserver.network.ProtocolVersionDetector;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSession;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSessionRegistry;
+import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.channel.socket.DatagramPacket;
 import org.junit.jupiter.api.AfterEach;
@@ -66,6 +67,7 @@ class BedrockOnlineAuthenticationTest {
 
     @Test
     void bedrockOnlineLoginVerifiesTrustedChainAndDisconnectsDeterministically() throws Exception {
+        TestLogSupport.logTestStart("BedrockOnlineAuthenticationTest.bedrockOnlineLoginVerifiesTrustedChainAndDisconnectsDeterministically");
         KeyPair clientKey = BedrockJwtTestSupport.generateEcKeyPair();
         KeyPair trustedRootKey = BedrockJwtTestSupport.generateEcKeyPair();
         KeyPair identityKey = BedrockJwtTestSupport.generateEcKeyPair();

@@ -14,6 +14,7 @@ import dev.tjxjnoobie.customminecraftserver.config.ServerSettings;
 import dev.tjxjnoobie.customminecraftserver.logging.StructuredConnectionLogger;
 import dev.tjxjnoobie.customminecraftserver.network.ProtocolVersionDetector;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSessionRegistry;
+import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.channel.socket.DatagramPacket;
 import org.junit.jupiter.api.AfterEach;
@@ -65,6 +66,7 @@ class BedrockLifecycleTest {
 
     @Test
     void bedrockLifecycleReachesNetworkSettingsAndDisconnect() throws Exception {
+        TestLogSupport.logTestStart("BedrockLifecycleTest.bedrockLifecycleReachesNetworkSettingsAndDisconnect");
         ConnectionSessionRegistry registry = new ConnectionSessionRegistry();
         BedrockJwtVerifier jwtVerifier = new BedrockJwtVerifier();
         channel = new EmbeddedChannel(new BedrockDatagramHandler(
