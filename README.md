@@ -20,14 +20,14 @@ World join, chunks, entities, commands, and gameplay are intentionally out of sc
 
 ## Project layout
 
-- `src/main/java/com/customminecraftserver/bootstrap`: server entry point and Netty bootstraps
-- `src/main/java/com/customminecraftserver/configuration`: strongly typed `server-settings.json` model
-- `src/main/java/com/customminecraftserver/logging`: structured connection logging
-- `src/main/java/com/customminecraftserver/session`: connection and session state model
-- `src/main/java/com/customminecraftserver/networking`: protocol version detection
-- `src/main/java/com/customminecraftserver/javaedition`: Java framing, login, encryption, and session verification
-- `src/main/java/com/customminecraftserver/bedrock`: RakNet, Bedrock login parsing, and Bedrock auth admission
-- `src/test/java/com/customminecraftserver/integration`: JUnit and Mockito integration tests using real handlers, packets, and session objects
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/bootstrap`: server entry point and Netty bootstraps
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/config`: strongly typed `server-settings.json` model
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/logging`: structured connection logging
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/session`: connection and session state model
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/network`: protocol version detection
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/protocol/java`: Java framing, login, encryption, and session verification (by feature)
+- `src/main/java/dev/tjxjnoobie/customminecraftserver/protocol/bedrock`: RakNet, Bedrock login parsing, and Bedrock auth admission (by feature)
+- `src/test/java/dev/tjxjnoobie/customminecraftserver/protocol`: JUnit and Mockito integration tests that mirror production packages
 - `harness`: Mineflayer and `bedrock-protocol` smoke harness
 - `scripts`: local Windows PowerShell entry points for server boot and smoke tests
 
