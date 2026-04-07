@@ -1,4 +1,4 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet;
 
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
@@ -71,3 +71,4 @@ final class BedrockJwtTestSupport {
         System.arraycopy(source, srcOffset, target, targetOffset + componentLength - copyLength, copyLength);
     }
 }
+

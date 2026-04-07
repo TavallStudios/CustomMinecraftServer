@@ -1,7 +1,7 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet;
 
-import com.customminecraftserver.bedrock.BedrockPacketIds;
-import com.customminecraftserver.bedrock.BedrockRakNetCodec;
+import dev.tjxjnoobie.customminecraftserver.protocol.bedrock.packet.BedrockPacketIds;
+import dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet.BedrockRakNetCodec;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.socket.DatagramPacket;
@@ -297,3 +297,4 @@ final class BedrockIntegrationTestSupport {
         return batch;
     }
 }
+

@@ -1,21 +1,21 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.java.connection;
 
-import com.customminecraftserver.configuration.AuthMode;
-import com.customminecraftserver.configuration.BedrockAuthenticationSettings;
-import com.customminecraftserver.configuration.JavaAuthenticationSettings;
-import com.customminecraftserver.configuration.ServerSettings;
-import com.customminecraftserver.javaedition.JavaConnectionHandler;
-import com.customminecraftserver.javaedition.JavaEncryptionChallengeFactory;
-import com.customminecraftserver.javaedition.JavaLoginCoordinator;
-import com.customminecraftserver.javaedition.JavaPacketFrameDecoder;
-import com.customminecraftserver.javaedition.JavaSessionDigest;
-import com.customminecraftserver.javaedition.MojangJavaSessionService;
-import com.customminecraftserver.javaedition.OfflineJavaLoginAdmission;
-import com.customminecraftserver.javaedition.OnlineJavaLoginAdmission;
-import com.customminecraftserver.logging.StructuredConnectionLogger;
-import com.customminecraftserver.networking.ProtocolVersionDetector;
-import com.customminecraftserver.session.ConnectionSession;
-import com.customminecraftserver.session.ConnectionSessionRegistry;
+import dev.tjxjnoobie.customminecraftserver.config.AuthMode;
+import dev.tjxjnoobie.customminecraftserver.config.BedrockAuthenticationSettings;
+import dev.tjxjnoobie.customminecraftserver.config.JavaAuthenticationSettings;
+import dev.tjxjnoobie.customminecraftserver.config.ServerSettings;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaConnectionHandler;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.auth.JavaEncryptionChallengeFactory;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.JavaLoginCoordinator;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.codec.JavaPacketFrameDecoder;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.auth.JavaSessionDigest;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.auth.MojangJavaSessionService;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.OfflineJavaLoginAdmission;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.OnlineJavaLoginAdmission;
+import dev.tjxjnoobie.customminecraftserver.logging.StructuredConnectionLogger;
+import dev.tjxjnoobie.customminecraftserver.network.ProtocolVersionDetector;
+import dev.tjxjnoobie.customminecraftserver.session.ConnectionSession;
+import dev.tjxjnoobie.customminecraftserver.session.ConnectionSessionRegistry;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import io.netty.buffer.ByteBuf;
@@ -35,23 +35,23 @@ import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.awaitOutboundFrame;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.configurationFinishedPacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.encryptionResponsePacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.handshakePacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.loginAcknowledgedPacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.loginStartPacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.playKeepAliveResponsePacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.playPongPacket;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readEncryptionRequest;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readFinishConfiguration;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readLegacyLoginSuccess;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readLegacyPlayDisconnect;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readModernLoginSuccess;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readModernPlayDisconnect;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readPlayKeepAlive;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.readPlayPing;
-import static com.customminecraftserver.integration.JavaIntegrationTestSupport.settingsPacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.awaitOutboundFrame;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.configurationFinishedPacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.encryptionResponsePacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.handshakePacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.loginAcknowledgedPacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.loginStartPacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.playKeepAliveResponsePacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.playPongPacket;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readEncryptionRequest;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readFinishConfiguration;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readLegacyLoginSuccess;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readLegacyPlayDisconnect;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readModernLoginSuccess;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readModernPlayDisconnect;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readPlayKeepAlive;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.readPlayPing;
+import static dev.tjxjnoobie.customminecraftserver.protocol.java.connection.JavaIntegrationTestSupport.settingsPacket;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -249,3 +249,4 @@ class JavaOnlineAuthenticationTest {
     ) {
     }
 }
+

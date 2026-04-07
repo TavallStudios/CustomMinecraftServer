@@ -1,13 +1,13 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.java.login;
 
-import com.customminecraftserver.configuration.AuthMode;
-import com.customminecraftserver.javaedition.JavaLoginCoordinator;
-import com.customminecraftserver.javaedition.JavaLoginDecision;
-import com.customminecraftserver.javaedition.JavaLoginStartPacket;
-import com.customminecraftserver.javaedition.OfflineJavaLoginAdmission;
-import com.customminecraftserver.javaedition.OnlineJavaLoginAdmission;
-import com.customminecraftserver.session.ConnectionEdition;
-import com.customminecraftserver.session.ConnectionSession;
+import dev.tjxjnoobie.customminecraftserver.config.AuthMode;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.JavaLoginCoordinator;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.JavaLoginDecision;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.packet.JavaLoginStartPacket;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.OfflineJavaLoginAdmission;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.login.OnlineJavaLoginAdmission;
+import dev.tjxjnoobie.customminecraftserver.session.ConnectionEdition;
+import dev.tjxjnoobie.customminecraftserver.session.ConnectionSession;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -32,7 +32,7 @@ class JavaLoginDelegationTest {
 
         verify(offline, times(1)).decide(session, packet);
         verify(online, times(0)).decide(session, packet);
-        assertEquals(com.customminecraftserver.javaedition.JavaLoginAction.DISCONNECT, decision.action());
+        assertEquals(dev.tjxjnoobie.customminecraftserver.protocol.java.login.JavaLoginAction.DISCONNECT, decision.action());
         assertTrue(decision.disconnectMessage().contains("JAVA_1_8_X OFFLINE"));
     }
 
@@ -50,7 +50,8 @@ class JavaLoginDelegationTest {
 
         verify(online, times(1)).decide(session, packet);
         verify(offline, times(0)).decide(session, packet);
-        assertEquals(com.customminecraftserver.javaedition.JavaLoginAction.REQUEST_ENCRYPTION, decision.action());
+        assertEquals(dev.tjxjnoobie.customminecraftserver.protocol.java.login.JavaLoginAction.REQUEST_ENCRYPTION, decision.action());
         assertNotNull(decision.encryptionChallenge());
     }
 }
+

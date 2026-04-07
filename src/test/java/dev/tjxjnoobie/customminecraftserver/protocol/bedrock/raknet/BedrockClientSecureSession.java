@@ -1,6 +1,6 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet;
 
-import com.customminecraftserver.bedrock.BedrockRakNetCodec;
+import dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet.BedrockRakNetCodec;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.buffer.ByteBuf;
@@ -157,3 +157,4 @@ final class BedrockClientSecureSession {
         return counter;
     }
 }
+

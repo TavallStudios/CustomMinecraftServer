@@ -1,6 +1,6 @@
-package com.customminecraftserver.bootstrap;
+package dev.tjxjnoobie.customminecraftserver.bootstrap;
 
-import com.customminecraftserver.configuration.AuthMode;
+import dev.tjxjnoobie.customminecraftserver.config.AuthMode;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -82,3 +82,4 @@ final class ServerConsoleCommandProcessorTest {
         }
     }
 }
+

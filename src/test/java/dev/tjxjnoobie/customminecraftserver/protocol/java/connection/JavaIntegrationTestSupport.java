@@ -1,8 +1,8 @@
-package com.customminecraftserver.integration;
+package dev.tjxjnoobie.customminecraftserver.protocol.java.connection;
 
-import com.customminecraftserver.javaedition.JavaPacketIds;
-import com.customminecraftserver.javaedition.MinecraftStringCodec;
-import com.customminecraftserver.javaedition.MinecraftVarInt;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.packet.JavaPacketIds;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.codec.MinecraftStringCodec;
+import dev.tjxjnoobie.customminecraftserver.protocol.java.codec.MinecraftVarInt;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.embedded.EmbeddedChannel;
@@ -232,3 +232,4 @@ final class JavaIntegrationTestSupport {
         }
     }
 }
+
