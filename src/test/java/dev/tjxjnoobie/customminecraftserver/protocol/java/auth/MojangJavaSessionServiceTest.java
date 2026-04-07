@@ -90,8 +90,8 @@ class MojangJavaSessionServiceTest {
         }
 
         @Override
-        public Version version() {
-            return Version.HTTP_1_1;
+        public HttpClient.Version version() {
+            return HttpClient.Version.HTTP_1_1;
         }
 
         @Override
@@ -170,8 +170,8 @@ class MojangJavaSessionServiceTest {
         }
 
         @Override
-        public Version version() {
-            return Version.HTTP_1_1;
+        public HttpClient.Version version() {
+            return HttpClient.Version.HTTP_1_1;
         }
     }
 }

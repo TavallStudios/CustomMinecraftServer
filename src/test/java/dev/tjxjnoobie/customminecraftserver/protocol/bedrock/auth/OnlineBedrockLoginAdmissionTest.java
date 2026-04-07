@@ -26,7 +26,12 @@ class OnlineBedrockLoginAdmissionTest {
 
         String identityJson = BedrockJwtTestSupport.authenticatedIdentityJson(clientKey, trustedRootKey, identityKey);
         String clientPublic = BedrockJwtTestSupport.toBase64Der(clientKey);
-        String clientJwt = BedrockJwtTestSupport.signEs384Jwt(clientKey, clientPublic, "{\"ThirdPartyName\":\"ClientUser\",\"cpk\":\"" + clientPublic + "\"}");
+        String identityPublic = BedrockJwtTestSupport.toBase64Der(identityKey);
+        String clientJwt = BedrockJwtTestSupport.signEs384Jwt(
+                identityKey,
+                identityPublic,
+                "{\"ThirdPartyName\":\"ClientUser\",\"cpk\":\"" + clientPublic + "\"}"
+        );
 
         BedrockAuthenticationSettings settings = new BedrockAuthenticationSettings(true, List.of(
                 BedrockJwtTestSupport.toBase64Der(trustedRootKey)
