@@ -47,7 +47,7 @@ public final class BedrockJwtTestSupport {
                 "{\"extraData\":{\"displayName\":\"VerifiedBedrock\",\"identity\":\"bedrock-player-identity\",\"XUID\":\"2535400000000001\"}}"
         );
 
-        return "{\"Certificate\":\"{\\\"chain\\\":[\\\"" + clientToken + "\\\",\\\"" + trustedToken + "\\\",\\\"" + identityToken + "\\\"]}\"}";
+        return "{\"chain\":[\"" + clientToken + "\",\"" + trustedToken + "\",\"" + identityToken + "\"]}";
     }
 
     private static byte[] derToJose(byte[] derSignature, int componentLength) {

@@ -21,9 +21,10 @@ class BedrockJwtVerifierTest {
 
         String identityJson = BedrockJwtTestSupport.authenticatedIdentityJson(clientKey, trustedRootKey, identityKey);
         String clientPublic = BedrockJwtTestSupport.toBase64Der(clientKey);
+        String identityPublic = BedrockJwtTestSupport.toBase64Der(identityKey);
         String clientJwt = BedrockJwtTestSupport.signEs384Jwt(
-                clientKey,
-                clientPublic,
+                identityKey,
+                identityPublic,
                 "{\"ThirdPartyName\":\"ClientUser\",\"identity\":\"client-identity\",\"XUID\":\"1\",\"cpk\":\"" + clientPublic + "\"}"
         );
 

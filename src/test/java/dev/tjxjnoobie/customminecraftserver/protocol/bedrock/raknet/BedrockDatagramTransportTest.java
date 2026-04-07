@@ -1,5 +1,7 @@
 package dev.tjxjnoobie.customminecraftserver.protocol.bedrock.raknet;
 
+import dev.tjxjnoobie.customminecraftserver.protocol.bedrock.packet.BedrockPacketIds;
+import dev.tjxjnoobie.customminecraftserver.protocol.bedrock.session.BedrockPeerSession;
 import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
