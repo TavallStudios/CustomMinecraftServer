@@ -75,6 +75,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.tjxjnoobie</groupId>
+            <artifactId>tavall-logging</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>

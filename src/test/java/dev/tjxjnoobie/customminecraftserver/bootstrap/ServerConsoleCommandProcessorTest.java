@@ -1,6 +1,7 @@
 package dev.tjxjnoobie.customminecraftserver.bootstrap;
 
 import dev.tjxjnoobie.customminecraftserver.config.AuthMode;
+import dev.tjxjnoobie.customminecraftserver.test.TestLogSupport;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 final class ServerConsoleCommandProcessorTest {
     @Test
     void statusCommandReturnsSnapshotDetails() {
+        TestLogSupport.logTestStart("ServerConsoleCommandProcessorTest.statusCommandReturnsSnapshotDetails");
         TestConsoleContext context = new TestConsoleContext(
                 new ServerConsoleSnapshot("0.0.0.0", 25565, 19132, AuthMode.OFFLINE, 2, true),
                 List.of("session-1", "session-2")
@@ -29,6 +31,7 @@ final class ServerConsoleCommandProcessorTest {
 
     @Test
     void sessionsCommandReturnsFriendlyEmptyMessage() {
+        TestLogSupport.logTestStart("ServerConsoleCommandProcessorTest.sessionsCommandReturnsFriendlyEmptyMessage");
         TestConsoleContext context = new TestConsoleContext(
                 new ServerConsoleSnapshot("0.0.0.0", 25565, 19132, AuthMode.OFFLINE, 0, true),
                 List.of()
@@ -43,6 +46,7 @@ final class ServerConsoleCommandProcessorTest {
 
     @Test
     void stopCommandRequestsShutdown() {
+        TestLogSupport.logTestStart("ServerConsoleCommandProcessorTest.stopCommandRequestsShutdown");
         TestConsoleContext context = new TestConsoleContext(
                 new ServerConsoleSnapshot("0.0.0.0", 25565, 19132, AuthMode.OFFLINE, 0, true),
                 List.of()
