@@ -1,5 +1,9 @@
 # Custom Minecraft Server MVP
 
+<!-- tavall:badges:start -->
+[![Org](https://img.shields.io/badge/org-TavallStudios-181717?logo=github)](https://github.com/TavallStudios) [![Stack](https://img.shields.io/badge/stack-Maven-0A7BBB)](https://api.github.com/repos/TavallStudios/CustomMinecraftServer) ![History](https://img.shields.io/badge/history-preserved-6f42c1)
+<!-- tavall:badges:end -->
+
 Standalone Minecraft server runtime written in Java 25 with Netty. This is not a Paper fork, plugin host, or compatibility layer. The codebase exists to prove that our own networking, session, and protocol pipeline can accept real Java Edition and Bedrock clients, identify their handshake or login path, and return deterministic protocol-aware responses without any runtime dependency on Bukkit, Spigot, Paper, Velocity, Fabric, Forge, Minestom, or Mojang server jars.
 
 ## MVP target
