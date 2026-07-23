@@ -1,8 +1,8 @@
 package dev.tjxjnoobie.customminecraftserver.integration;
 
-import com.tavall.hytale.resourcegame.shared.frontend.MinecraftPlayerRuntimeSnapshot;
-import com.tavall.hytale.resourcegame.shared.frontend.MinecraftServerRuntimeSnapshot;
-import com.tavall.hytale.resourcegame.shared.frontend.ResourceGameFrontendSurfaceIdentity;
+import org.tavall.api.minecraft.MinecraftPlayerRuntimeSnapshot;
+import org.tavall.api.minecraft.MinecraftServerRuntimeSnapshot;
+import org.tavall.api.minecraft.frontend.ResourceGameFrontendSurfaceIdentity;
 import dev.tjxjnoobie.customminecraftserver.config.ServerSettings;
 import dev.tjxjnoobie.customminecraftserver.session.ConnectionSession;
 

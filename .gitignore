@@ -1,4 +1,6 @@
-/target/
+/build/
+/distribution/
+/.gradle/
 /out/
 /logs/
 /.idea/

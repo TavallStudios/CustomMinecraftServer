@@ -1,0 +1,37 @@
+# This is a Gradle generated file for dependency locking.
+# Manual edits can break the build and are not advised.
+# This file is expected to be part of source control.
+# To regenerate this file, run: ./gradlew :dependencies --write-locks
+ch.qos.logback:logback-classic:1.5.18=runtimeClasspath,testRuntimeClasspath
+ch.qos.logback:logback-core:1.5.18=runtimeClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-annotations:2.18.4=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-core:2.18.4=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-databind:2.18.4=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.4=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.module:jackson-module-parameter-names:2.18.3=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.tavall:game-api:0.1.1-working_migrate-to-gradle-SNAPSHOT=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-bom:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-buffer:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-codec:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-common:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-resolver:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+io.netty:netty-transport:4.1.121.Final=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+net.bytebuddy:byte-buddy-agent:1.17.5=testCompileClasspath,testRuntimeClasspath
+net.bytebuddy:byte-buddy:1.17.5=testCompileClasspath,testRuntimeClasspath
+org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath,testRuntimeClasspath
+org.junit.jupiter:junit-jupiter-api:5.12.2=testCompileClasspath,testRuntimeClasspath
+org.junit.jupiter:junit-jupiter-engine:5.12.2=testRuntimeClasspath
+org.junit.jupiter:junit-jupiter-params:5.12.2=testCompileClasspath,testRuntimeClasspath
+org.junit.jupiter:junit-jupiter:5.12.2=testCompileClasspath,testRuntimeClasspath
+org.junit.platform:junit-platform-commons:1.12.2=testCompileClasspath,testRuntimeClasspath
+org.junit.platform:junit-platform-engine:1.12.2=testRuntimeClasspath
+org.junit.platform:junit-platform-launcher:1.12.2=testRuntimeClasspath
+org.junit:junit-bom:5.12.2=testCompileClasspath,testRuntimeClasspath
+org.mockito:mockito-core:5.18.0=testCompileClasspath,testRuntimeClasspath
+org.mockito:mockito-junit-jupiter:5.18.0=testCompileClasspath,testRuntimeClasspath
+org.objenesis:objenesis:3.3=testRuntimeClasspath
+org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
+org.slf4j:slf4j-api:2.0.17=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.tavall:tavall-di:1.0.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.tavall:tavall-logging:1.0.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+empty=annotationProcessor,testAnnotationProcessor
