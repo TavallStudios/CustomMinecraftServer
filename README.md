@@ -143,7 +143,7 @@ npm install
 Run the Java test suite:
 
 ```powershell
-mvn test
+.\gradlew.bat test
 ```
 
 Start the server manually:
