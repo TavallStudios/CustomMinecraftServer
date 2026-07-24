@@ -17,9 +17,13 @@ function Start-CustomServerHarness {
     )
 
     Assert-HarnessPortsAvailable
-    & mvn -q -DskipTests package
+    $gradle = Join-Path $RepoRoot "gradlew.bat"
+    & $gradle --no-daemon stageDistribution
+    if ($LASTEXITCODE -ne 0) {
+        throw "Gradle build failed."
+    }
 
-    $logDir = Join-Path $RepoRoot "target\harness"
+    $logDir = Join-Path $RepoRoot "build\harness"
     New-Item -ItemType Directory -Path $logDir -Force | Out-Null
     $stdoutLog = Join-Path $logDir "server-stdout.log"
     $stderrLog = Join-Path $logDir "server-stderr.log"
@@ -27,7 +31,7 @@ function Start-CustomServerHarness {
 
     $process = Start-Process `
         -FilePath "java" `
-        -ArgumentList "-jar", "$RepoRoot\target\custom-minecraft-server.jar", $SettingsPath `
+        -ArgumentList "-cp", "$RepoRoot\distribution\server\application.jar;$RepoRoot\distribution\server\libs\*", "dev.tjxjnoobie.customminecraftserver.bootstrap.ServerMain", $SettingsPath `
         -WorkingDirectory $RepoRoot `
         -RedirectStandardOutput $stdoutLog `
         -RedirectStandardError $stderrLog `
@@ -101,7 +105,7 @@ function Get-CustomServerJavaProcessId {
         Where-Object {
             $_.Name -eq "java.exe" -and
             $_.CommandLine -match $escapedRepoRoot -and
-            $_.CommandLine -match "custom-minecraft-server"
+            $_.CommandLine -match "distribution\\server\\application\.jar"
         } |
         Select-Object -First 1
 
@@ -117,7 +121,7 @@ function New-CustomServerSettingsSnapshot {
         [string]$AuthMode
     )
 
-    $logDir = Join-Path $RepoRoot "target\harness"
+    $logDir = Join-Path $RepoRoot "build\harness"
     New-Item -ItemType Directory -Path $logDir -Force | Out-Null
 
     $settings = Get-Content (Join-Path $RepoRoot "server-settings.json") -Raw | ConvertFrom-Json -AsHashtable

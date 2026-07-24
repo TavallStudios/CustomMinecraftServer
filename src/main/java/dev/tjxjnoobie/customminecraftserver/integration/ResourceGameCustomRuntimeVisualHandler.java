@@ -1,6 +1,6 @@
 package dev.tjxjnoobie.customminecraftserver.integration;
 
-import com.tavall.hytale.resourcegame.shared.frontend.MinecraftVisualRenderRequest;
+import org.tavall.api.minecraft.MinecraftVisualRenderRequest;
 
 public final class ResourceGameCustomRuntimeVisualHandler {
     public String describeNoop(MinecraftVisualRenderRequest request) {
