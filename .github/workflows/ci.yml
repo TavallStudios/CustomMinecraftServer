@@ -33,7 +33,7 @@ jobs:
         run: ./scripts/bootstrap-tavall-tools.sh
       - name: Publish resource-game API for the build
         working-directory: .dependency-source/tavall-hytale-resource-game
-        run: ./gradlew --no-daemon --max-workers=1 :game-api:publishToMavenLocal
+        run: ./gradlew --no-daemon --max-workers=1 -I "$GITHUB_WORKSPACE/gradle/resource-game-version.init.gradle" :game-api:publishToMavenLocal
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
       - name: Build and test
