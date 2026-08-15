@@ -13,6 +13,7 @@ version = extra["gitVersion"] as String
 
 val resourceGameVersion = providers.gradleProperty("resourceGameVersion")
     .orElse("0.1.1-working_migrate-to-gradle-SNAPSHOT")
+val tavallToolsVersion = "1.0.0"
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -34,6 +35,28 @@ repositories {
             password = providers.environmentVariable("GITHUB_TOKEN").orNull
         }
     }
+    val githubToken = providers.environmentVariable("GITHUB_TOKEN").orNull
+    if (!githubToken.isNullOrBlank()) {
+        listOf(
+            "tavall-di",
+            "tavall-cache",
+            "tavall-concurrency",
+            "tavall-database",
+            "tavall-eventbus",
+            "tavall-logging",
+            "tavall-reflection",
+            "tavall-registry",
+            "tavall-scheduler",
+        ).forEach { repository ->
+            maven("https://maven.pkg.github.com/TavallStudios/$repository") {
+                name = "github${repository.replace("-", "")}"
+                credentials {
+                    username = providers.environmentVariable("GITHUB_ACTOR").orElse("github").get()
+                    password = githubToken
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -45,6 +68,12 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.4")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.4")
     implementation("com.tavall:game-api:${resourceGameVersion.get()}")
+
+    implementation("org.tavall:tavall-di:$tavallToolsVersion")
+    implementation("org.tavall:tavall-concurrency:$tavallToolsVersion")
+    implementation("org.tavall:tavall-logging:$tavallToolsVersion")
+
+    // Transitional until existing logger calls are migrated onto Tavall Logging.
     implementation("org.slf4j:slf4j-api:2.0.17")
     runtimeOnly("ch.qos.logback:logback-classic:1.5.18")
 
