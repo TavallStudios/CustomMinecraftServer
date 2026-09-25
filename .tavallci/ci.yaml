@@ -17,6 +17,7 @@ dependencies:
     identity: TavallStudios/tavall-hytale-resource-game
     role: SHARED_DEP
     selector: required-source
+    substitutions: "com.tavall:game-api=:game-api"
   - kind: source
     identity: TavallStudios/tavall-cache
     role: SHARED_DEP
