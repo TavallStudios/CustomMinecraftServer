@@ -25,7 +25,6 @@ application {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven {
         name = "TavallResourceGamePackages"
